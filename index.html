@@ -1,0 +1,1149 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Некромодификант — Смерть не конец</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <style>
+        /* ================================================================
+           ОСНОВНЫЕ СТИЛИ — ТЁМНАЯ ТЕМА
+           ================================================================ */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #0d0a08;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 30px 15px;
+            font-family: 'Cormorant Garamond', 'Book Antiqua', serif;
+        }
+
+        .book {
+            max-width: 210mm;
+            width: 100%;
+            background: #1a1a1a;
+            background-image: 
+                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="rgba(20,15,12,0.3)"/><path d="M10 10 L90 10 L90 90 L10 90 Z" stroke="rgba(60,40,30,0.05)" stroke-width="1" fill="none"/></svg>');
+            color: #d4c9b8;
+            padding: 40px 50px;
+            border-radius: 8px;
+            box-shadow: 0 0 60px rgba(40, 20, 10, 0.6), inset 0 0 100px rgba(0,0,0,0.5);
+            position: relative;
+            border: 1px solid #2a1a12;
+            min-height: 100vh;
+        }
+
+        /* ===== ШРИФТЫ И ЗАГОЛОВКИ ===== */
+        .book h1, .book h2, .book h3, .book h4 {
+            font-family: 'Cinzel', serif;
+            color: #b8a088;
+            text-shadow: 0 0 20px rgba(100, 50, 40, 0.15);
+        }
+
+        .book h1 {
+            font-size: 48px;
+            text-align: center;
+            letter-spacing: 6px;
+            border: none;
+            margin-top: 10px;
+            font-weight: 900;
+        }
+
+        .book h1 small {
+            display: block;
+            font-size: 18px;
+            color: #6a5a4a;
+            letter-spacing: 10px;
+            margin-top: 8px;
+            font-weight: 400;
+        }
+
+        .book h2 {
+            font-size: 28px;
+            border-left: 4px solid #8a3a2a;
+            padding-left: 18px;
+            margin: 30px 0 15px 0;
+            color: #c8b098;
+            font-weight: 700;
+        }
+
+        .book h3 {
+            font-size: 20px;
+            color: #b8a088;
+            font-style: italic;
+            margin: 20px 0 10px 0;
+            font-weight: 600;
+        }
+
+        .book h4 {
+            font-size: 16px;
+            color: #c8a888;
+            margin: 12px 0 8px 0;
+            font-weight: 700;
+        }
+
+        .book p {
+            line-height: 1.7;
+            margin-bottom: 12px;
+            font-size: 15px;
+        }
+
+        /* ===== ТАБЛИЦЫ ===== */
+        .book table {
+            background: rgba(30, 25, 20, 0.85);
+            border: 1px solid #5a3a2a;
+            color: #d4c9b8;
+            width: 100%;
+            margin: 15px 0;
+            font-size: 13px;
+            border-collapse: collapse;
+        }
+
+        .book table th {
+            background: #2a1a1a;
+            color: #b8a088;
+            border-bottom: 2px solid #8a3a2a;
+            padding: 8px 14px;
+            font-family: 'Cinzel', serif;
+            text-align: left;
+            font-size: 12px;
+            letter-spacing: 0.5px;
+        }
+
+        .book table td {
+            padding: 6px 14px;
+            border-bottom: 1px solid #3a2a1a;
+        }
+
+        .book table tr:nth-child(even) {
+            background: rgba(50, 35, 25, 0.25);
+        }
+
+        .book table tr:hover {
+            background: rgba(80, 50, 35, 0.15);
+        }
+
+        .book .table-wrap {
+            overflow-x: auto;
+            margin: 10px 0;
+        }
+
+        /* ===== БЛОКИ ===== */
+        .book blockquote {
+            border-left: 4px solid #8a3a2a;
+            background: rgba(40, 25, 20, 0.4);
+            padding: 12px 25px;
+            margin: 15px 0;
+            font-style: italic;
+            color: #c8b098;
+            font-size: 17px;
+            border-radius: 0 4px 4px 0;
+        }
+
+        .book blockquote small {
+            display: block;
+            color: #7a6a5a;
+            font-size: 14px;
+            margin-top: 6px;
+            font-style: normal;
+        }
+
+        .book .note {
+            background: rgba(60, 30, 20, 0.2);
+            border: 1px solid #5a2a1a;
+            padding: 14px 20px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+
+        /* ===== ЛЕНТЫ И РАЗДЕЛИТЕЛИ ===== */
+        .book .ribbon {
+            background: #2a1a1a;
+            border-left: 3px solid #8a3a2a;
+            border-right: 3px solid #8a3a2a;
+            padding: 8px 20px;
+            margin: 25px 0 18px 0;
+            font-size: 16px;
+            color: #d4b8a0;
+            font-family: 'Cinzel', serif;
+            text-align: center;
+            letter-spacing: 2px;
+        }
+
+        .book .divider {
+            border: none;
+            border-top: 1px solid #3a2a1a;
+            margin: 30px 0;
+        }
+
+        .book .divider-double {
+            border: none;
+            border-top: 2px solid #3a2a1a;
+            margin: 25px 0;
+            position: relative;
+        }
+        .book .divider-double::after {
+            content: "⚰";
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #1a1a1a;
+            padding: 0 15px;
+            color: #5a4a3a;
+            font-size: 18px;
+        }
+
+        /* ===== ЗАГОЛОВКИ ПУТЕЙ ===== */
+        .book .path-header {
+            background: linear-gradient(135deg, #2a1a1a, #1a0a0a);
+            border: 2px solid #8a3a2a;
+            padding: 20px;
+            margin: 25px 0 20px 0;
+            text-align: center;
+            font-family: 'Cinzel', serif;
+            font-size: 28px;
+            color: #d4b8a0;
+            border-radius: 8px;
+            box-shadow: 0 0 30px rgba(80, 30, 20, 0.15);
+        }
+
+        .book .path-header .icon {
+            font-size: 42px;
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .book .path-header small {
+            display: block;
+            font-size: 14px;
+            color: #8a7a6a;
+            font-style: italic;
+            margin-top: 4px;
+            font-weight: 400;
+        }
+
+        /* ===== СПОСОБНОСТИ ===== */
+        .book .ability {
+            background: rgba(30, 25, 20, 0.5);
+            border-left: 3px solid #6a4a3a;
+            padding: 10px 18px;
+            margin: 10px 0;
+            border-radius: 0 4px 4px 0;
+        }
+
+        .book .ability strong {
+            color: #c8a888;
+        }
+
+        .book .ability .level {
+            color: #8a7a6a;
+            font-size: 13px;
+            font-family: 'Cinzel', serif;
+            letter-spacing: 1px;
+        }
+
+        /* ===== НЕДОСТАТКИ ===== */
+        .book .flaw {
+            background: rgba(60, 20, 20, 0.2);
+            border-left: 4px solid #8a2a2a;
+            padding: 12px 18px;
+            margin: 12px 0;
+            border-radius: 3px;
+        }
+
+        .book .flaw-title {
+            color: #8a3a2a;
+            font-weight: bold;
+            font-family: 'Cinzel', serif;
+            font-size: 14px;
+            display: block;
+            margin-bottom: 6px;
+        }
+
+        /* ===== СТАТ-БЛОК ===== */
+        .book .stat-block {
+            background: rgba(20, 15, 12, 0.85);
+            border: 1px solid #5a3a2a;
+            padding: 15px 20px;
+            margin: 12px 0;
+            border-radius: 4px;
+        }
+
+        .book .stat-block strong {
+            color: #c8a888;
+        }
+
+        /* ===== СПИСОК ФИЛАКТЕРИЕВ ===== */
+        .book .filactery-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin: 12px 0;
+        }
+
+        .book .filactery-item {
+            background: rgba(40, 25, 20, 0.3);
+            border: 1px solid #3a2a1a;
+            padding: 8px 14px;
+            border-radius: 4px;
+            font-size: 13px;
+        }
+
+        .book .filactery-item strong {
+            color: #c8a888;
+        }
+
+        /* ===== СЕТКИ ДЛЯ СТРАТЕГИЙ ===== */
+        .book .strategy-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin: 10px 0;
+        }
+
+        .book .strategy-item {
+            background: rgba(30, 25, 20, 0.4);
+            border: 1px solid #3a2a1a;
+            padding: 10px 14px;
+            border-radius: 4px;
+            font-size: 13px;
+        }
+
+        .book .strategy-item strong {
+            color: #c8a888;
+        }
+
+        /* ===== ТИТУЛЬНАЯ СТРАНИЦА ===== */
+        .book .title-page {
+            text-align: center;
+            padding: 60px 20px 40px 20px;
+            min-height: 70vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .book .title-page .skull {
+            font-size: 80px;
+            opacity: 0.25;
+            margin-bottom: 20px;
+        }
+
+        .book .title-page .main-title {
+            font-size: 48px;
+            font-family: 'Cinzel', serif;
+            color: #d4b8a0;
+            text-shadow: 0 0 40px rgba(80, 40, 30, 0.2);
+            letter-spacing: 8px;
+            line-height: 1.2;
+            font-weight: 900;
+        }
+
+        .book .title-page .main-title small {
+            display: block;
+            font-size: 22px;
+            color: #8a7a6a;
+            letter-spacing: 14px;
+            font-weight: 400;
+            margin-top: 8px;
+        }
+
+        .book .title-page .sub-title {
+            font-size: 20px;
+            color: #8a7a6a;
+            font-family: 'Cinzel', serif;
+            letter-spacing: 12px;
+            margin: 25px auto;
+            border-top: 2px solid #3a2a1a;
+            border-bottom: 2px solid #3a2a1a;
+            padding: 12px 30px;
+            display: inline-block;
+        }
+
+        .book .title-page .tagline {
+            font-size: 18px;
+            color: #6a5a4a;
+            font-style: italic;
+            margin-top: 30px;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.8;
+        }
+
+        .book .title-page .homebrew-tag {
+            margin-top: 50px;
+            font-size: 12px;
+            color: #5a4a3a;
+            letter-spacing: 3px;
+            font-family: 'Cinzel', serif;
+        }
+
+        /* ===== КОЛОНТИТУЛЫ ===== */
+        .book .header-line {
+            border-bottom: 1px solid #3a2a1a;
+            padding-bottom: 8px;
+            margin-bottom: 25px;
+            text-align: center;
+            font-family: 'Cinzel', serif;
+            font-size: 10px;
+            color: #5a4a3a;
+            letter-spacing: 4px;
+        }
+
+        .book .footer-line {
+            border-top: 1px solid #3a2a1a;
+            padding-top: 12px;
+            margin-top: 30px;
+            text-align: center;
+            font-family: 'Cinzel', serif;
+            font-size: 10px;
+            color: #5a4a3a;
+            letter-spacing: 2px;
+        }
+
+        .book .page-number {
+            text-align: right;
+            font-family: 'Cinzel', serif;
+            font-size: 11px;
+            color: #5a4a3a;
+            margin-top: 5px;
+        }
+
+        /* ===== ЦИТАТЫ ПЕРСОНАЖЕЙ ===== */
+        .book .quote-block {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 15px;
+            margin: 15px 0;
+        }
+
+        .book .quote-item {
+            background: rgba(30, 25, 20, 0.4);
+            border: 1px solid #3a2a1a;
+            padding: 12px 16px;
+            border-radius: 4px;
+            font-style: italic;
+            font-size: 14px;
+            color: #c8b098;
+            text-align: center;
+        }
+
+        .book .quote-item .author {
+            display: block;
+            font-style: normal;
+            font-size: 12px;
+            color: #7a6a5a;
+            margin-top: 6px;
+            font-family: 'Cinzel', serif;
+            letter-spacing: 1px;
+        }
+
+        /* ===== АДАПТИВНОСТЬ ===== */
+        @media (max-width: 768px) {
+            .book {
+                padding: 20px 18px;
+            }
+            .book h1 {
+                font-size: 32px;
+            }
+            .book .title-page .main-title {
+                font-size: 36px;
+            }
+            .book .title-page .main-title small {
+                font-size: 16px;
+                letter-spacing: 8px;
+            }
+            .book .path-header {
+                font-size: 20px;
+                padding: 15px;
+            }
+            .book .filactery-grid,
+            .book .strategy-grid,
+            .book .quote-block {
+                grid-template-columns: 1fr;
+            }
+            .book table {
+                font-size: 11px;
+            }
+            .book table th,
+            .book table td {
+                padding: 4px 8px;
+            }
+        }
+
+        @media print {
+            body {
+                padding: 0;
+                background: #1a1a1a;
+            }
+            .book {
+                border-radius: 0;
+                box-shadow: none;
+                padding: 20px 30px;
+                max-width: 100%;
+                min-height: auto;
+            }
+            .book .title-page {
+                min-height: 80vh;
+            }
+        }
+
+        /* ===== ВСПОМОГАТЕЛЬНЫЕ КЛАССЫ ===== */
+        .book .text-center { text-align: center; }
+        .book .text-muted { color: #7a6a5a; }
+        .book .mt-10 { margin-top: 10px; }
+        .book .mt-20 { margin-top: 20px; }
+        .book .mb-10 { margin-bottom: 10px; }
+        .book .mb-20 { margin-bottom: 20px; }
+        .book .flex-center { display: flex; justify-content: center; }
+        .book .gap-10 { gap: 10px; }
+
+        .book .light-theme-toggle {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #2a1a1a;
+            color: #d4c9b8;
+            border: 1px solid #5a3a2a;
+            padding: 10px 16px;
+            border-radius: 6px;
+            font-family: 'Cinzel', serif;
+            font-size: 12px;
+            cursor: pointer;
+            z-index: 999;
+            transition: all 0.3s;
+        }
+
+        .book .light-theme-toggle:hover {
+            background: #3a2a2a;
+            border-color: #8a3a2a;
+        }
+
+        /* ===== СВЕТЛАЯ ТЕМА ===== */
+        .book.light-theme {
+            background: #f5efe8;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="rgba(220,210,200,0.2)"/><path d="M10 10 L90 10 L90 90 L10 90 Z" stroke="rgba(180,160,140,0.1)" stroke-width="1" fill="none"/></svg>');
+            color: #3a2a2a;
+            border-color: #b8a090;
+        }
+
+        .book.light-theme h1,
+        .book.light-theme h2,
+        .book.light-theme h3,
+        .book.light-theme h4 {
+            color: #5a3a2a;
+            text-shadow: none;
+        }
+
+        .book.light-theme table {
+            background: rgba(245, 235, 220, 0.9);
+            border-color: #b8a090;
+            color: #3a2a2a;
+        }
+
+        .book.light-theme table th {
+            background: #d4c8b8;
+            color: #3a2a2a;
+            border-bottom-color: #8a6a5a;
+        }
+
+        .book.light-theme table tr:nth-child(even) {
+            background: rgba(200, 185, 170, 0.15);
+        }
+
+        .book.light-theme .path-header {
+            background: linear-gradient(135deg, #d4c8b8, #e8dcd0);
+            border-color: #8a6a5a;
+            color: #3a2a2a;
+        }
+
+        .book.light-theme .path-header small {
+            color: #6a5a4a;
+        }
+
+        .book.light-theme .ribbon {
+            background: #d4c8b8;
+            border-color: #8a6a5a;
+            color: #3a2a2a;
+        }
+
+        .book.light-theme .stat-block {
+            background: rgba(245, 235, 220, 0.8);
+            border-color: #b8a090;
+            color: #3a2a2a;
+        }
+
+        .book.light-theme .flaw {
+            background: rgba(180, 80, 80, 0.08);
+            border-left-color: #8a2a2a;
+        }
+
+        .book.light-theme .ability {
+            background: rgba(220, 210, 200, 0.3);
+            border-left-color: #8a6a5a;
+        }
+
+        .book.light-theme .header-line,
+        .book.light-theme .footer-line {
+            border-color: #b8a090;
+            color: #8a7a6a;
+        }
+
+        .book.light-theme .page-number {
+            color: #8a7a6a;
+        }
+
+        .book.light-theme .title-page .main-title {
+            color: #3a2a2a;
+            text-shadow: 0 0 20px rgba(100, 60, 40, 0.05);
+        }
+
+        .book.light-theme .title-page .sub-title {
+            border-color: #b8a090;
+            color: #5a4a3a;
+        }
+
+        .book.light-theme .title-page .tagline {
+            color: #6a5a4a;
+        }
+
+        .book.light-theme blockquote {
+            background: rgba(220, 210, 200, 0.3);
+            border-left-color: #8a6a5a;
+            color: #4a3a3a;
+        }
+
+        .book.light-theme .note {
+            background: rgba(200, 180, 160, 0.15);
+            border-color: #b8a090;
+        }
+
+        .book.light-theme .filactery-item,
+        .book.light-theme .strategy-item,
+        .book.light-theme .quote-item {
+            background: rgba(220, 210, 200, 0.25);
+            border-color: #b8a090;
+            color: #3a2a2a;
+        }
+
+        .book.light-theme .divider-double::after {
+            background: #f5efe8;
+            color: #8a7a6a;
+        }
+
+        .book.light-theme .light-theme-toggle {
+            background: #d4c8b8;
+            color: #3a2a2a;
+            border-color: #8a6a5a;
+        }
+
+        .book.light-theme .light-theme-toggle:hover {
+            background: #c8b8a8;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="book" id="book">
+        <!-- ============================================================ -->
+        <!-- ТИТУЛЬНАЯ СТРАНИЦА                                             -->
+        <!-- ============================================================ -->
+
+        <div class="title-page">
+            <div class="skull">💀</div>
+            <div class="main-title">
+                НЕКРОМОДИФИКАНТ
+                <small>СМЕРТЬ НЕ КОНЕЦ</small>
+            </div>
+            <div class="sub-title">NEW BEGINNING</div>
+            <div class="tagline">
+                <i>Иногда смерть — это только начало приключения.<br>
+                Сможете ли вы вернуться из мертвых? Захотите ли вы это сделать?</i>
+            </div>
+            <div class="homebrew-tag">HOMEBREW • D&D 5E</div>
+        </div>
+
+        <div class="footer-line">НЕКРОМОДИФИКАНТ • СМЕРТЬ НЕ КОНЕЦ • HOMEBREW</div>
+        <div class="page-number">— 1 —</div>
+
+        <hr class="divider-double">
+
+        <!-- ============================================================ -->
+        <!-- СТРАНИЦА 2: ВСТУПЛЕНИЕ И СОЗДАНИЕ                              -->
+        <!-- ============================================================ -->
+
+        <div class="header-line">НЕКРОМОДИФИКАНТ • СОЗДАНИЕ</div>
+
+        <h1>ВСТУПЛЕНИЕ</h1>
+
+        <p>Некромодификант — это тот, кто перешагнул порог смерти, но не нашёл покоя. Магия, вернувшая его к «жизни», была груба и несовершенна. Его тело — это смесь плоти, костей и тьмы, скреплённая волей и душой. Он не просто нежить — он <strong>эволюционирующая</strong> нежить, способная менять свою природу по мере накопления силы.</p>
+
+        <div class="ribbon">☠ СОЗДАНИЕ НЕКРОМОДИФИКАНТА ☠</div>
+
+        <h3>Характеристики</h3>
+        <p><strong>Увеличение характеристик:</strong> +2 к одной характеристике (ваш выбор — отголосок прошлой жизни), +1 к другой (проявление новой сущности).</p>
+
+        <h3>Тип существа</h3>
+        <p><strong>Нежить (гуманоид).</strong> Вы не считаетесь живым существом для заклинаний, которые действуют только на живых (например, <em>Cure Wounds</em> восстанавливает только половину хитов). Но вы всё ещё гуманоид (вас можно очаровать, напугать и т.д., если не сказано иное).</p>
+
+        <h3>Размер</h3>
+        <p>Маленький или Средний (выбираете при создании).</p>
+
+        <h3>Скорость</h3>
+        <p>30 футов.</p>
+
+        <h3>Наследие смерти</h3>
+        <p>Вы умерли и вернулись, и это наложило отпечаток:</p>
+
+        <div class="stat-block">
+            <strong>Преимущества:</strong><br>
+            • У вас есть <strong>преимущество</strong> на спасброски против <strong>отравления</strong> и <strong>болезней</strong>.<br>
+            • Вы <strong>имунны</strong> к урону <strong>некротической энергией</strong>.<br>
+            • Вы <strong>не нуждаетесь</strong> в еде, питье, воздухе и сне. Однако вы должны проводить <strong>4 часа</strong> в неподвижности (медитации) для завершения продолжительного отдыха. Вы остаётесь в сознании.<br>
+            • Вас <strong>невозможно</strong> магически усыпить или воздействовать с помощью заклинаний, направленных на существ, которые спят.<br>
+            • Лечение магией (например, <em>Cure Wounds</em>) наносит вам <strong>двойной урон</strong> от выпавшего числа. Лечение некротической энергией (например, <em>Inflict Wounds</em> против себя) восстанавливает вам <strong>половину</strong> от выпавшего числа.
+        </div>
+
+        <h3>Блеклые воспоминания</h3>
+        <p>Вы можете 1 раз между продолжительными отдыхами вызвать отголосок памяти. Бросьте <strong>к6</strong> по таблице ниже и получите <strong>Вдохновение (кость d6)</strong>. Эту кость можно потратить на любую проверку характеристики, атаку или спасбросок, связанный с этим воспоминанием.</p>
+
+        <div class="table-wrap">
+            <table>
+                <thead>
+                    <tr><th>к6</th><th>Воспоминание</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>1</td><td>Вы вспоминаете момент с физической болью. К какой отметине или шраму на вашем теле он имеет отношение?</td></tr>
+                    <tr><td>2</td><td>Воспоминание вызывает слезы на ваших глазах. Это горькое или радостное воспоминание?</td></tr>
+                    <tr><td>3</td><td>Вы вспоминаете что-то из детства. Что важного в этом моменте или в том, с кем вы рядом?</td></tr>
+                    <tr><td>4</td><td>Воспоминание приносит вместе с собой голос кого-то, кто был вам близок. Что они вам советуют?</td></tr>
+                    <tr><td>5</td><td>Вы вспоминаете, как наслаждались чем-то, что сейчас вы терпеть не можете. Что это? Почему вам не нравится это сейчас?</td></tr>
+                    <tr><td>6</td><td>Воспоминание несёт в себе яркий запах или ощущение. Что вы сделаете, чтобы повторить это?</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h3>Знание смерти</h3>
+        <p>Вы получаете владение одним навыком на выбор: <strong>Атлетика</strong>, <strong>Выживание</strong>, <strong>Анализ</strong>, <strong>Внимательность</strong>, <strong>Проницательность</strong> или <strong>Запугивание</strong>. Это навык, который вы развили после смерти.</p>
+
+        <h3>Языки</h3>
+        <p>Вы можете говорить, читать и писать на <strong>Общем</strong> и ещё одном языке (выбираете из тех, что знали при жизни).</p>
+
+        <div class="footer-line">НЕКРОМОДИФИКАНТ • СМЕРТЬ НЕ КОНЕЦ • HOMEBREW</div>
+        <div class="page-number">— 2 —</div>
+
+        <hr class="divider-double">
+
+        <!-- ============================================================ -->
+        <!-- СТРАНИЦА 3: ЭВОЛЮЦИЯ И ПУТЬ БЕССМЕРТНОГО                       -->
+        <!-- ============================================================ -->
+
+        <div class="header-line">НЕКРОМОДИФИКАНТ • ПУТЬ БЕССМЕРТНОГО</div>
+
+        <div class="ribbon">⚡ ЭВОЛЮЦИЯ (ВЫБОР ПУТИ) ⚡</div>
+
+        <p>Начиная с <strong>5 уровня</strong>, вы накапливаете <strong>Анимус</strong> — жизненную энергию убитых вами существ. Мастер определяет, сколько существ нужно убить для перехода на следующий этап (обычно сюжетно, но можно использовать правило: каждое существо с CR &gt;= ваш уровень/2 даёт 1 очко; нужно набрать уровень*2 очков для эволюции).</p>
+
+        <p><strong>Важно:</strong> Эволюция — это <em>субкласс</em>, который вы выбираете один раз. Его нельзя изменить.</p>
+
+        <div class="path-header">
+            <span class="icon">💀</span>
+            ПУТЬ БЕССМЕРТНОГО
+            <small>Филактерий — якорь души</small>
+        </div>
+
+        <blockquote>
+            <i>"Я спрятал свою смерть. Теперь я уязвим лишь в одном месте."</i>
+        </blockquote>
+
+        <p>Вы начинаете осознавать, что ваша душа привязана к предмету — филактерию. Это ваш якорь.</p>
+
+        <div class="ability">
+            <span class="level">✦ 5 УРОВЕНЬ — ЯКОРЬ ДУШИ</span><br>
+            • Выберите один предмет, который всегда носили с собой (на момент получения этой особенности). Это ваш <strong>филактерий</strong>.<br>
+            • Если вы умираете (хиты падают до 0 и вы провалили все спасброски от смерти), ваше тело рассыпается в прах. Через <strong>1d10 дней</strong> вы восстанавливаетесь рядом с филактерием с 1 хитом. За это время вы не можете взаимодействовать с миром.<br>
+            • <strong>Цена:</strong> Во время восстановления ваша душа мучительно страдает. Вы получаете <strong>один уровень истощения</strong> (который нельзя снять магией, только отдыхом) при возвращении.<br>
+            • Филактерий имеет <strong>Твердость 10</strong> и <strong>Хиты 20</strong>. Если его уничтожить — вы умираете окончательно.<br>
+            • Вы получаете <strong>врожденные заклинания</strong> из списка заклинаний <strong>Волшебника</strong>. Для наложения этих заклинаний используйте <strong>Интеллект</strong> или <strong>вашу основную заклинательную характеристику</strong>.
+        </div>
+
+        <div class="table-wrap">
+            <table>
+                <thead>
+                    <tr><th>Уровень Персонажа</th><th>Заклинание</th><th>Частота</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>1</td><td><em>Леденящее прикосновение (Chill Touch)</em></td><td>Без ограничений</td></tr>
+                    <tr><td>1</td><td><em>Вызов страха (Cause Fear)</em></td><td>1/день</td></tr>
+                    <tr><td>5</td><td><em>Призыв духа нежити (Summon Undead)</em></td><td>1/день</td></tr>
+                    <tr><td>11</td><td><em>Клетка душ (Soul Cage)</em></td><td>1/день</td></tr>
+                    <tr><td>12</td><td><em>Сотворение нежити (Create Undead)</em></td><td>1 раз в 3 дня (как ритуал)</td></tr>
+                    <tr><td>13</td><td><em>Перст смерти (Finger of Death)</em></td><td>1/день</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+
+        <h4>Примеры филактериев</h4>
+        <p>Выберите или придумайте свой филактерий:</p>
+
+        <div class="filactery-grid">
+            <div class="filactery-item"><strong>📿 Амулет предков</strong> — фамильная драгоценность, хранящая души ваших предков.</div>
+            <div class="filactery-item"><strong>📜 Гримуар</strong> — книга с вашими магическими записями, каждая страница пропитана вашей кровью.</div>
+            <div class="filactery-item"><strong>⚔️ Клинок</strong> — оружие, которым вас убили. Теперь оно носит вашу душу.</div>
+            <div class="filactery-item"><strong>💍 Кольцо</strong> — простое кольцо, которое вы никогда не снимали при жизни.</div>
+            <div class="filactery-item"><strong>🕯️ Свеча</strong> — вечно горящая свеча, которая погаснет только с вашей окончательной смертью.</div>
+            <div class="filactery-item"><strong>🧿 Око</strong> — ваш собственный глаз, сохранённый в янтаре.</div>
+            <div class="filactery-item"><strong>📿 Чётки</strong> — священный предмет, осквернённый вашим воскрешением.</div>
+            <div class="filactery-item"><strong>🎭 Маска</strong> — театральная маска, скрывающая ваше истинное лицо.</div>
+        </div>
+
+        <div class="ability">
+            <span class="level">✦ 10 УРОВЕНЬ — ПИТАНИЕ ДУШ</span><br>
+            • Вы должны раз в <strong>неделю</strong> поглощать душу разумного существа (гуманоид или нежить с интеллектом), используя ритуал, который длится 1 минуту после того, как цель умирает в пределах 30 футов от вас.<br>
+            • Если вы пропускаете кормёжку, вы теряете <strong>сопротивление к некротике</strong> и начинаете каждое утро терять 1 хит максимальных хитов (восстанавливается только кормёжкой).<br>
+            • <strong>Сопротивление изгнанию:</strong> Вы имеете преимущество на спасброски от эффектов, изгоняющих нежить (<em>Turn Undead</em> и т.п.).<br>
+            • Вы можете создать 1 скелета или зомби, который слушается вас 24 часа.
+        </div>
+
+        <div class="ability">
+            <span class="level">✦ 15 УРОВЕНЬ — НЕСМЕРТНЫЙ</span><br>
+            • Филактерий становится <strong>Твердость 18</strong>, <strong>Хиты 50</strong>.<br>
+            • Вы получаете <strong>сопротивление к холоду</strong> и <strong>электричеству</strong>.<br>
+            • Один раз в день, когда вы проваливаете спасбросок, вы можете <strong>перебросить его</strong> (как <em>Лучшая участь</em> у колдуна).
+        </div>
+
+        <div class="flaw">
+            <span class="flaw-title">⚠ НЕДОСТАТОК ПУТИ БЕССМЕРТНОГО</span>
+            • Ваше тело хрупкое. Вы <strong>уязвимы</strong> к <strong>лучистому урону</strong> (свет паладинов и жрецов жжёт вас вдвойне).<br>
+            • Вы не можете использовать <em>Cure Wounds</em> на себе (только <em>False Life</em> и некротическое лечение).
+        </div>
+
+        <div class="footer-line">НЕКРОМОДИФИКАНТ • СМЕРТЬ НЕ КОНЕЦ • HOMEBREW</div>
+        <div class="page-number">— 3 —</div>
+
+        <hr class="divider-double">
+
+        <!-- ============================================================ -->
+        <!-- СТРАНИЦА 4: ПУТЬ АЛЧУЩЕГО                                      -->
+        <!-- ============================================================ -->
+
+        <div class="header-line">НЕКРОМОДИФИКАНТ • ПУТЬ АЛЧУЩЕГО</div>
+
+        <div class="path-header">
+            <span class="icon">🧛</span>
+            ПУТЬ АЛЧУЩЕГО
+            <small>Кровопийца, твой голод неутолим</small>
+        </div>
+
+        <blockquote>
+            <i>"Я не просто хочу пить. Я хочу чувствовать, как жизнь уходит из них и вливается в меня."</i>
+        </blockquote>
+
+        <p>Вы пробудили голод, который невозможно утолить полностью.</p>
+
+        <div class="ability">
+            <span class="level">✦ 5 УРОВЕНЬ — НЕУТОЛИМЫЙ ГОЛОД</span><br>
+            • Вы получаете <strong>Укус</strong>. Это рукопашная атака (использует Ловкость или Силу, на ваш выбор), которая наносит <strong>1к4</strong> колющего урона + модификатор характеристики (Сила/Ловкость/Телосложение).<br>
+            • При попадании вы можете усилить себя одним из следующих способов:<br>
+            <strong>Истощение:</strong> Вы восстанавливаете хиты в количестве, равном нанесённому колющему урону.<br>
+            <strong>Усиление:</strong> Вы получаете бонус к следующей проверке характеристики или броску атаки, который совершите в течение следующей минуты; размер бонуса равен нанесённому колющему урону.<br>
+            Это срабатывает <strong>один раз в ход</strong>. Вы можете использовать эту особенность для усиления себя количество раз, равное вашему <strong>бонусу мастерства</strong>, и восстанавливаете все потраченные использования после завершения <strong>продолжительного отдыха</strong>. Эта способность не срабатывает против конструктов, нежити, элементалей, растений.<br>
+            • Вы получаете <strong>скорость лазания 30 футов</strong> (паучье лазание).<br>
+            • Вы получаете <strong>тёмное зрение 60 футов</strong>.
+        </div>
+
+        <h4>Способы утоления голода</h4>
+
+        <div class="table-wrap">
+            <table>
+                <thead>
+                    <tr><th>Способ</th><th>Эффект</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>🩸 Укус живого</td><td>Восстановление хитов (как указано выше)</td></tr>
+                    <tr><td>🩸 Питьё крови жертвы</td><td>Временные хиты 1к4+уровень (вне боя)</td></tr>
+                    <tr><td>🩸 Ритуальное жертвоприношение</td><td>Снимает 1 уровень истощения (1/неделю)</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="ability">
+            <span class="level">✦ 10 УРОВЕНЬ — ОЧАРОВАТЕЛЬНЫЙ ШЁПОТ</span><br>
+            • Вы можете 1 раз в день (восстанавливается после короткого отдыха) попытаться очаровать одного гуманоида в пределах 30 футов. Цель делает спасбросок <strong>Мудрости Сл = 8 + ваш бонус мастерства + модификатор Харизмы</strong>.<br>
+            • При провале цель считает вас другом на 1 минуту и не будет атаковать вас (но может атаковать ваших союзников).<br>
+            • Вы получаете <strong>сопротивление к урону от немагического дробящего, колющего и рубящего оружия</strong> (ваша кожа затвердевает).
+        </div>
+
+        <div class="ability">
+            <span class="level">✦ 15 УРОВЕНЬ — ХОЗЯИН НОЧИ</span><br>
+            • Вы больше не боитесь солнца! Вы теряете штрафы к солнечному свету (если они у вас были).<br>
+            • Вы не стареете и вы получаете сопротивление лучистому урону.<br>
+            • Вы можете накладывать заклинание Смена обличья (Alter self) количество раз равное вашему <strong>Бонусу Мастерства/день</strong>. Это не требует поддержания концентрации и действует пока эффект не развеян или отменен.<br>
+            • Ваш укус теперь наносит дополнительно <strong>1к6</strong> некротического урона. Когда вы сбиваете хиты существа до 0 укусом, вы можете восстановить одну <strong>ячейку заклинаний 2-го уровня</strong> (если вы заклинатель) или получить временные хиты (10) до конца боя.
+        </div>
+
+        <div class="flaw">
+            <span class="flaw-title">⚠ НЕДОСТАТОК ПУТИ АЛЧУЩЕГО</span>
+            • Вы <strong>уязвимы к солнечному свету</strong> до 15 уровня (при прямом солнечном свете вы совершаете броски атаки и проверки с помехой).<br>
+            • Вы не можете пить обычную воду или есть еду — это вызывает у вас тошноту (вы автоматически проваливаете спасброски от отравления, если съели обычную еду).<br>
+            • Вы <strong>не можете</strong> использовать заклинания лечения (на вас не действует положительная энергия, только некротическая).
+        </div>
+
+        <h4>Цитаты Алчущего</h4>
+
+        <div class="quote-block">
+            <div class="quote-item">
+                <i>"Твоя кровь пахнет страхом. Это лучший аромат."</i>
+                <span class="author">— Алчущий</span>
+            </div>
+            <div class="quote-item">
+                <i>"Я не монстр. Я просто очень голоден."</i>
+                <span class="author">— Алчущий</span>
+            </div>
+            <div class="quote-item">
+                <i>"Солнце — мой единственный враг. И я научусь побеждать даже его."</i>
+                <span class="author">— Алчущий</span>
+            </div>
+        </div>
+
+        <div class="footer-line">НЕКРОМОДИФИКАНТ • СМЕРТЬ НЕ КОНЕЦ • HOMEBREW</div>
+        <div class="page-number">— 4 —</div>
+
+        <hr class="divider-double">
+
+        <!-- ============================================================ -->
+        <!-- СТРАНИЦА 5: ПУТЬ БЕСТЕЛЕСНОГО                                   -->
+        <!-- ============================================================ -->
+
+        <div class="header-line">НЕКРОМОДИФИКАНТ • ПУТЬ БЕСТЕЛЕСНОГО</div>
+
+        <div class="path-header">
+            <span class="icon">👻</span>
+            ПУТЬ БЕСТЕЛЕСНОГО
+            <small>Призрак, отринь плоть</small>
+        </div>
+
+        <blockquote>
+            <i>"Моё тело — лишь одежда. Я могу сбросить её, когда захочу."</i>
+        </blockquote>
+
+        <p>Вы научились разделять душу и тело.</p>
+
+        <div class="ability">
+            <span class="level">✦ 5 УРОВЕНЬ — ЭФИРНЫЙ ШАГ</span><br>
+            • Бонусным действием вы можете стать <strong>бестелесным</strong> до начала вашего следующего хода. В этом состоянии:<br>
+            &nbsp;&nbsp;&nbsp;- Вы можете проходить сквозь существ и предметы, как через труднопроходимую местность.<br>
+            &nbsp;&nbsp;&nbsp;- Вы получаете <strong>сопротивление ко всем видам урона</strong> (кроме силового и лучистого) пока способность активна.<br>
+            &nbsp;&nbsp;&nbsp;- Вы <strong>не можете атаковать</strong> и <strong>не можете накладывать заклинания</strong> в этом состоянии (только перемещаться).<br>
+            • Использовать это можно <strong>число раз = ваш бонус мастерства</strong>. Восстанавливается после продолжительного отдыха.
+        </div>
+
+        <h4>Тактическое применение Эфирного шага</h4>
+
+        <div class="strategy-grid">
+            <div class="strategy-item"><strong>🚪 Проникновение</strong> — Пройти сквозь запертую дверь или решётку</div>
+            <div class="strategy-item"><strong>⚔️ Уклонение</strong> — Получить сопротивление к урону до начала вашего следующего хода</div>
+            <div class="strategy-item"><strong>🏃 Побег</strong> — Покинуть окружение, пройдя сквозь врагов</div>
+            <div class="strategy-item"><strong>🕵️ Разведка</strong> — Пройти сквозь стены, чтобы увидеть, что за ними</div>
+        </div>
+
+        <div class="ability">
+            <span class="level">✦ 10 УРОВЕНЬ — ВСЕЛЕНИЕ (ОДЕРЖИМОСТЬ)</span><br>
+            • Вы можете действием попытаться вселиться в <strong>гуманоида</strong>, которого видите в пределах 5 футов. Цель делает спасбросок <strong>Харизмы Сл = 8 + ваш бонус мастерства + модификатор Интеллекта</strong>.<br>
+            • При провале вы входите в тело цели на <strong>1 минуту</strong>. Вы контролируете её движения (как <em>Dominate Person</em>), но не можете использовать её заклинания или классовые способности. Ваше тело становится недееспособным на это время.<br>
+            • Использовать можно <strong>1 раз в день</strong>.
+        </div>
+
+        <h4>Стратегии вселения</h4>
+
+        <div class="strategy-grid">
+            <div class="strategy-item"><strong>🎭 Социальная инфильтрация</strong> — Вселитесь в тело стражи, чтобы пройти в замок</div>
+            <div class="strategy-item"><strong>⚔️ Боевой контроль</strong> — Вселитесь во вражеского лидера, чтобы он атаковал своих</div>
+            <div class="strategy-item"><strong>🕵️ Шпионаж</strong> — Используйте тело цели, чтобы узнать её секреты</div>
+            <div class="strategy-item"><strong>🛡️ Защита</strong> — Вселитесь в тело союзника, чтобы вывести его из опасности</div>
+        </div>
+
+        <div class="ability">
+            <span class="level">✦ 15 УРОВЕНЬ — ИСТИННАЯ БЕСТЕЛЕСНОСТЬ</span><br>
+            • Вы можете использовать <strong>Эфирный шаг</strong> как действие, и он длится до <strong>1 минуты</strong> (концентрация, как заклинание).<br>
+            • В этом состоянии вы <strong>невидимы</strong> для существ, не имеющих истинного зрения.<br>           
+            • Вы получаете <strong>тёмное зрение 120 футов</strong> (если не было) и можете слышать звуки с <strong>Эфирного плана</strong>.
+        </div>
+
+        <div class="flaw">
+            <span class="flaw-title">⚠ НЕДОСТАТОК ПУТИ БЕСТЕЛЕСНОГО</span>
+            • Ваше тело — хрупкое вместилище. Вы <strong>уязвимы к лучистому урону</strong>.<br>
+            • Вы <strong>не можете</strong> использовать обычные физические атаки, пока находитесь в бестелесном состоянии (кроме способности вселения).<br>
+            • Если вы вселяетесь в тело, а ваше родное тело атакуют — вы немедленно изгоняетесь обратно и получаете <strong>2 уровня истощения</strong>.
+        </div>
+
+        <div class="footer-line">НЕКРОМОДИФИКАНТ • СМЕРТЬ НЕ КОНЕЦ • HOMEBREW</div>
+        <div class="page-number">— 5 —</div>
+
+        <hr class="divider-double">
+
+        <!-- ============================================================ -->
+        <!-- СТРАНИЦА 6: СВОДКА, ПРАВИЛА, СОВМЕСТИМОСТЬ                     -->
+        <!-- ============================================================ -->
+
+        <div class="header-line">НЕКРОМОДИФИКАНТ • СВОДКА И ПРАВИЛА</div>
+
+        <h2>СВОДНАЯ ТАБЛИЦА РАЗВИТИЯ</h2>
+
+        <div class="table-wrap">
+            <table>
+                <thead>
+                    <tr><th>Уровень</th><th>Все пути</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>1</td><td>Базовые черты нежити + навык + "Блеклые воспоминания"</td></tr>
+                    <tr><td>3</td><td>Тёмное зрение (если не было), язык</td></tr>
+                    <tr><td>5</td><td><strong>Выбор пути</strong> + первая ключевая способность</td></tr>
+                    <tr><td>10</td><td>Вторая ключевая способность пути</td></tr>
+                    <tr><td>15</td><td>Третья ключевая способность пути + устранение главного недостатка (кроме уязвимостей)</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h2>ПРАВИЛА ДЛЯ МАСТЕРА: АНИМУС И ЭВОЛЮЦИЯ</h2>
+
+        <p>Анимус — это не просто счётчик убийств. Это <strong>сюжетный ресурс</strong>. Вот как его можно использовать:</p>
+
+        <div class="stat-block">
+            <strong>📊 1. Сбор анимуса:</strong> Каждое разумное существо (CR &gt;= 1/2) оставляет след анимуса, который может поглотить Некромодификант, если находится рядом в момент смерти.<br><br>
+            <strong>📈 2. Накопление:</strong> Для перехода на 5 уровень (выбор пути) нужно накопить <strong>10 очков анимуса</strong>. Далее для каждого нового этапа (10 и 15 уровень) нужно накопить ещё по <strong>20 очков</strong>.<br><br>
+            <strong>🎲 3. Альтернатива:</strong> Вместо подсчёта, Мастер может просто дать эволюцию в ключевые сюжетные моменты (например, после убийства босса, или после выполнения личного квеста).<br><br>
+            <strong>⚖️ 4. Цена:</strong> Поглощение анимуса — это тёмный акт. Жрецы и паладины могут чувствовать это, а добрые божества могут отвернуться от персонажа.
+        </div>
+
+        <h2>СОВМЕСТИМОСТЬ С КЛАССАМИ</h2>
+
+        <p>Некромодификант — это <strong>раса</strong>, поэтому он может быть любым классом. Однако некоторые классы синергируют лучше:</p>
+
+        <div class="table-wrap">
+            <table>
+                <thead>
+                    <tr><th>Класс</th><th>Почему работает</th><th>Рекомендуемый путь</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><strong>Волшебник / Колдун / Чародей</strong></td><td>Врождённые заклинания и контроль</td><td>Бессмертный</td></tr>
+                    <tr><td><strong>Плут (Разбойник)</strong></td><td>Идеальное уклонение и проникновение</td><td>Бестелесный</td></tr>
+                    <tr><td><strong>Воин / Монах</strong></td><td>Вампирская регенерация и выживаемость</td><td>Алчущий</td></tr>
+                    <tr><td><strong>Жрец / Паладин</strong></td><td>Уникальная драма — служить свету, будучи тьмой</td><td>Любой (драматичный)</td></tr>
+                    <tr><td><strong>Следопыт</strong></td><td>Охотник, который стал дичью</td><td>Алчущий</td></tr>
+                    <tr><td><strong>Бард</strong></td><td>Харизматичный манипулятор</td><td>Алчущий или Бестелесный</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h2>СРАВНЕНИЕ ПУТЕЙ</h2>
+
+        <div class="table-wrap">
+            <table>
+                <thead>
+                    <tr><th>Характеристика</th><th>Бессмертный</th><th>Алчущий</th><th>Бестелесный</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><strong>Основная роль</strong></td><td>Выживание, магия</td><td>Ближний бой, регенерация</td><td>Разведка, контроль</td></tr>
+                    <tr><td><strong>Главная сила</strong></td><td>Воскрешение</td><td>Восстановление хитов</td><td>Прохождение сквозь стены</td></tr>
+                    <tr><td><strong>Главный недостаток</strong></td><td>Уязвимость к лучистому</td><td>Уязвимость к солнцу</td><td>Хрупкое тело</td></tr>
+                    <tr><td><strong>Сложность игры</strong></td><td>Высокая</td><td>Средняя</td><td>Высокая</td></tr>
+                    <tr><td><strong>Интерес для Мастера</strong></td><td>Филактерий — сюжетный крючок</td><td>Голод — драматический ресурс</td><td>Вселение — социальные сценарии</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <hr class="divider">
+
+        <div class="footer-line">НЕКРОМОДИФИКАНТ • СМЕРТЬ НЕ КОНЕЦ • HOMEBREW</div>
+        <div class="page-number">— 6 —</div>
+
+        <hr class="divider-double">
+
+        <!-- ============================================================ -->
+        <!-- СТРАНИЦА 7: ЗАКЛЮЧЕНИЕ И АЛЬТЕРНАТИВНАЯ ТЕМА                   -->
+        <!-- ============================================================ -->
+
+        <div class="header-line">НЕКРОМОДИФИКАНТ • ЗАКЛЮЧЕНИЕ</div>
+
+        <h2>ЗАКЛЮЧЕНИЕ</h2>
+
+        <p>Некромодификант — это персонаж для тех, кто хочет исследовать тему смерти, искупления, могущества и утраты. Он не просто монстр — он <strong>герой</strong> (или злодей), который сделал выбор, и теперь должен жить (или не жить) с его последствиями.</p>
+
+        <div style="text-align: center; font-size: 20px; color: #8a7a6a; font-family: 'Cinzel', serif; margin: 30px 0; padding: 25px 0; border-top: 2px solid #3a2a1a; border-bottom: 2px solid #3a2a1a;">
+            💀 <i>"Ты боишься смерти? Я боюсь того, что будет после."</i> 💀
+        </div>
+
+        <hr class="divider">
+
+        <h2>СВЕТЛАЯ ТЕМА (ДЛЯ ПЕЧАТИ)</h2>
+
+        <p>Если вы предпочитаете светлый фон для печати, нажмите кнопку <strong>«Светлая тема»</strong> в правом нижнем углу. Она переключит оформление на бежевый фон с тёмным текстом — это сэкономит чернила при печати.</p>
+
+        <div class="stat-block">
+            <strong>📌 Рекомендация:</strong> Используйте тёмную тему для цифрового просмотра и светлую для печати. Фоновые текстуры автоматически адаптируются.
+        </div>
+
+        <div style="text-align: center; padding: 20px; margin-top: 20px; font-size: 18px; color: #8a7a6a; font-style: italic; border-top: 1px solid #3a2a1a; padding-top: 25px;">
+            "В каждой смерти есть новая история. Какую историю расскажете вы?"
+        </div>
+
+        <div class="footer-line">НЕКРОМОДИФИКАНТ • СМЕРТЬ НЕ КОНЕЦ • HOMEBREW</div>
+        <div class="page-number">— 7 —</div>
+
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- КНОПКА ПЕРЕКЛЮЧЕНИЯ ТЕМЫ                                       -->
+    <!-- ============================================================ -->
+
+    <button class="light-theme-toggle" id="themeToggle">🌙 Светлая тема</button>
+
+    <script>
+        (function() {
+            const book = document.getElementById('book');
+            const toggleBtn = document.getElementById('themeToggle');
+            let isLight = false;
+
+            toggleBtn.addEventListener('click', function() {
+                isLight = !isLight;
+                if (isLight) {
+                    book.classList.add('light-theme');
+                    toggleBtn.textContent = '🌙 Тёмная тема';
+                    toggleBtn.style.background = '#d4c8b8';
+                    toggleBtn.style.color = '#3a2a2a';
+                    toggleBtn.style.borderColor = '#8a6a5a';
+                } else {
+                    book.classList.remove('light-theme');
+                    toggleBtn.textContent = '🌙 Светлая тема';
+                    toggleBtn.style.background = '#2a1a1a';
+                    toggleBtn.style.color = '#d4c9b8';
+                    toggleBtn.style.borderColor = '#5a3a2a';
+                }
+            });
+
+            // Если пользователь сохраняет предпочтения в localStorage
+            // (опционально)
+            const saved = localStorage.getItem('necromod-theme');
+            if (saved === 'light') {
+                toggleBtn.click();
+            }
+
+            // Сохраняем выбор при клике
+            toggleBtn.addEventListener('click', function() {
+                localStorage.setItem('necromod-theme', isLight ? 'light' : 'dark');
+            });
+        })();
+    </script>
+
+</body>
+</html>
